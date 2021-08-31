@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="./css/vistasstyle.css">
+     <link rel="stylesheet" href="./css/stylestablas.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="stylesheet" href="./css/stylemodalcreditos.css">
+     <script src="/js/jquery-3.6.0.min.js" ></script>
+    <script src="/js/actualizarcred.js" ></script>
+    <script src="/js/borrarcreditos.js" ></script>
+   
+    <title>Creditos</title>
+</head>
+<body>
+    
+
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxs-bank'></i>
+                <div class="logo_name">BancoMaster</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+             <li>
+                <a href="panelempleado.jsp">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="links_name">Dashboard</span>
+
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="gestionusuarioajax.jsp">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links_name">Usuarios</span>
+
+                </a>
+                <span class="tooltip">Usuarios</span>
+            </li>
+            <li>
+                <a href="indexempleado.jsp">
+                   <i class='bx bxs-home'></i>
+                    <span class="links_name">Home</span>
+
+                </a>
+            <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-folder-open' ></i>
+                    <span class="links_name">Archivos</span>
+
+                </a>
+               <span class="tooltip">Archivos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-chat' ></i>
+                    <span class="links_name">Mensajes</span>
+
+                </a>
+                <span class="tooltip">Mensajes</span>
+            </li>
+            
+            <li>
+                <form action="ServletCerrar">
+                  <a href="#">
+
+                    
+                    <i class='bx bxs-log-out-circle'> </i>
+                    
+                    <input type="submit" name="btncerrar" class="links_name" value="Cerrar Sesion" style="border:none;color:#fff;background:#4D0686;">
+                </a>
+                    
+
+                    <span class="tooltip">Cerrar Sesion</span>
+             
+                   
+                   
+             
+         </form>
+
+                
+                
+            </li>
+
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="" alt="">
+                <div class="name_job">
+                   
+                    <div class="name"></div>
+                    <div class="job">Hola</div>
+                   
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    
+          
+        <main>
+		<h1 class="titulo">Panel de control de  Creditos</h1>
+		<div class="categorias" id="categorias">
+                     <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="borrarcred">  
+			<div class="categoria activa" data-categoria="metodos-pago">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/></svg>
+				<p>Eliminar Creditos</p>
+                    
+			</div>
+                     </a>
+                     <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="actualizar">  
+			<div class="categoria" data-categoria="entregas">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"/></svg>				
+
+				<p>Actualizar Creditos</p>
+			</div>
+                     </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="mejoresin">  
+                    <div class="categoria" data-categoria="entregas">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>				
+
+				<p>Consultar Creditos</p>
+			</div>
+                        </a>
+                     <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="insertar">  
+                    <div class="categoria" data-categoria="entregas">
+				<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+
+				<p>Generar Creditos</p>
+			</div>
+                    </a>
+			
+		</div>
+
+		
+
+		
+	</main>
+    <div class="modal-container3">
+        
+        <div class="modal3 modal-close3 ">
+            
+            <p class="close3">X</p>
+            <div class="modal-textos ">
+                
+                <table class="tabla">
+                    <thead>
+
+             <tr>
+                
+                <th>Codigo</th>
+                <th>Documento</th> 
+                <th>Codigo Linea</th> 
+                <th>Monto prestado</th> 
+                <th>Fecha de aprobacion</th> 
+                <th>Plazo (meses)</th> 
+                <th>Actualizar</th> 
+                <th>Borrar</th>
+               
+                
+                
+            </tr>
+                    </thead>
+            
+                    <%datos.forEach(function(datos){ %>  
+         
+                        <tr> 
+                            <form action="" method="" >
+                              <td><input type="text" name="codigocredito" value="<%=datos.codigocredito%>" class="cod" id="cod" name="co"></td>
+                             <td><input trype="text" name="doccli" value="<%=datos.doccli%>" class="doc" id="doc" name="documento"></td>
+                             <td><input type="text" name="codigolinea" value="<%=datos.codlinea%>" class="codlinea" id="codlinea" name="lineacod"></td>
+                             <td><input type="number" name="monto" value="<%=datos.montoprestado%>" class="monto" id="monto" name="mon"></td>
+                             <td><input type="date" name="fechaaprobacion" value="<%=datos.fechaaproba%>" class="fech" id="fech" name="fapro"></td>
+                             <td><input type="number" name="plazo" value="<%=datos.plazo%>" class="plazo" id="plazo" name="pla"></td>
+                             <td><input type="submit" value="Actualizar"  name="btnactcred"  class="btnactcred" id="btnactcred"></td>
+                             <td><input type="submit" value="Borrar"  name="btnborrarcred"  class="btnborrarcred" id="btnactcred"></td>
+                             
+                            </form>
+                            
+                        </tr>
+                        
+                        
+                   <%})%>
+       
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+         
+              
+       
+         <div class="modal-container2">
+        
+        <div class="modal2 modal-close2 ">
+            
+            <p class="close2">X</p>
+            <div class="modal-textos ">
+               
+                <section class="form-register">
+             
+               <form method="POST" action="/frminsertarcreditos">
+            <input class="controls" type="text" placeholder="Codigo Credito" name="Codcredito">
+            <input class="controls" type="text" placeholder="Documento cliente" name="Documentocli">
+            <input class="controls" type="text" placeholder="Codigo Linea" name="Codlinea">
+            <input class="controls" type="number" placeholder="Monto prestado" name="Monto">
+            Fecha Aprobacion<input class="controls" type="date"   placeholder="Fecha Aprobacion" name="Fecha">
+            <input class="controls" type="number" placeholder="Plazo (Meses)" name="Plazo">
+             <input class="botons" type="submit" name="btninsertcreditos" value="Generear">
+   
+
+        </form>
+                </section>
+            
+     
+        
+        
+                
+            </div>
+            
+        </div>
+        
+    </div>
+     
+               
+              
+           
+        
+    <script>
+
+        let btn=document.querySelector("#btn");
+        let sidebar=document.querySelector(".sidebar");
+        
+        btn.onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+        .onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+
+    </script>
+   
+    
+</body>
+</html>
+ <script src="js/modalcreditos.js"></script>

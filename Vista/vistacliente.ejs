@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal || Cliente</title>
+    <link rel="stylesheet" href="./css/vistacliente.css">
+    <link rel="stylesheet" href="./css/stylestablas.css">
+   
+    
+    <link rel="shortcut icon" href="img/banca-en-linea.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="./css/stylemodalvistacliente.css">
+       
+	
+
+</head>
+<body>
+
+    <nav class="nav">
+
+        <div class="nav_container">
+
+            <h1 class="nav_logo">BancoMaster.</h1>
+
+            <label for="menu" class="nav_label">
+
+              <img src="assets/menu.svg" alt="menu" class="nav_img">
+            </label>
+            <input type="checkbox" id="menu" class="nav_input">
+            <div class="nav_menu">
+                <h3 class="Persona"><%=sex%></h3>
+                <a href="/indexcliente" class="nav_item">Inicio</a>
+                <a href="/vistacliente" class="nav_item">Portal</a>
+                <form action="ServletCerrar" method="Post">
+                    <input type="submit" value="Cerrar Sesion" name="btncerrar" class="nav_cerrar">
+                </form>
+                
+
+            </div>
+        </div>
+
+    </nav>
+    <main>
+		<h1 class="titulo">Portal Transaccional</h1>
+		<div class="categorias" id="categorias">
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="transferir">  
+			<div class="categoria activa" data-categoria="metodos-pago">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M23 0l-4.5 16.5-6.097-5.43 5.852-6.175-7.844 5.421-5.411-1.316 18-9zm-11 12.501v5.499l2.193-3.323-2.193-2.176zm-2.789 3.857l.94.934c-.875.885-1.773 1.933-2.125 3.375l-1.286-.314c.434-1.774 1.491-3.004 2.471-3.995zm-1.565 7.642c-.715 0-1.353-.279-1.887-.83-1.458.515-2.844-.044-3.576-1.084-.575-.817-.703-1.853-.353-2.845-.552-.534-.83-1.166-.83-1.884 0-1.562 1.16-2.803 3.24-2.586l.195 1.117c-.664.062-1.277.097-1.674.494-.668.668-.467 2.063.787 2.433-.832.836-.751 2.037-.127 2.696.654.69 1.903.799 2.765-.059.385 1.305 1.798 1.422 2.433.787.392-.392.431-.995.492-1.649l1.125.229c.2 1.979-1.009 3.181-2.59 3.181zm-3.318-7.032l.314 1.287c1.755-.43 2.953-1.45 3.989-2.471l-.938-.931c-.876.866-1.927 1.764-3.365 2.115z"/></svg>				
+                            <p>Transferir</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="actualizarusu">  
+			<div class="categoria" data-categoria="entregas">
+				<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 2c2.757 0 5 2.243 5 5.001 0 2.756-2.243 5-5 5s-5-2.244-5-5c0-2.758 2.243-5.001 5-5.001zm0-2c-3.866 0-7 3.134-7 7.001 0 3.865 3.134 7 7 7s7-3.135 7-7c0-3.867-3.134-7.001-7-7.001zm6.369 13.353c-.497.498-1.057.931-1.658 1.302 2.872 1.874 4.378 5.083 4.972 7.346h-19.387c.572-2.29 2.058-5.503 4.973-7.358-.603-.374-1.162-.811-1.658-1.312-4.258 3.072-5.611 8.506-5.611 10.669h24c0-2.142-1.44-7.557-5.631-10.647z"/></svg>
+
+				<p>Actualizar Usuario & Contraseña</p>
+			</div>
+                    </a>
+                    <a href="movimientos.jsp" style=" color: #fff; text-decoration: none;">  
+			<div class="categoria" data-categoria="seguridad">
+				<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M21.19 7h2.81v15h-21v-5h-2.81v-15h21v5zm1.81 1h-19v13h19v-13zm-9.5 1c3.036 0 5.5 2.464 5.5 5.5s-2.464 5.5-5.5 5.5-5.5-2.464-5.5-5.5 2.464-5.5 5.5-5.5zm0 1c2.484 0 4.5 2.016 4.5 4.5s-2.016 4.5-4.5 4.5-4.5-2.016-4.5-4.5 2.016-4.5 4.5-4.5zm.5 8h-1v-.804c-.767-.16-1.478-.689-1.478-1.704h1.022c0 .591.326.886.978.886.817 0 1.327-.915-.167-1.439-.768-.27-1.68-.676-1.68-1.693 0-.796.573-1.297 1.325-1.448v-.798h1v.806c.704.161 1.313.673 1.313 1.598h-1.018c0-.788-.727-.776-.815-.776-.55 0-.787.291-.787.622 0 .247.134.497.957.768 1.056.344 1.663.845 1.663 1.746 0 .651-.376 1.288-1.313 1.448v.788zm6.19-11v-4h-19v13h1.81v-9h17.19z"/></svg>
+				<p>Movimientos</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="actualizar">  
+			<div class="categoria" data-categoria="cuenta">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"/></svg>				
+				<p> Actualizar mis Datos </p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="miscreditos">  
+                    <div class="categoria" data-categoria="cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M4.062 16.626c-.165-.5.038-.921.656-1.145l3.249-1.155-.134 1.028c-.077.589-.103 1.107-.089 1.573-.25.078-1.095.339-1.945.552-.871.218-1.538-.25-1.737-.853zm1.745 1.916c-.461.167-.612.48-.489.854.147.449.645.798 1.294.635.606-.151 1.408-.396 1.701-.487-.203-.505-.378-1.035-.479-1.659l-2.027.657zm.193-10.542h2.643l.128-1h-2.771v1zm16-6v9c0 1.104-.896 2-2 2h-1.989l.015.02c-.031.43-.105.906-.222 1.457-.451 2.144-1.637 5.122-.83 8.418-2.312.356-3.651.523-5.992 1.105-.273-4.062-2.266-4.943-1.804-8.47.542-4.137.844-6.461 1.196-9.255.11-.879.731-1.307 1.337-1.307.631 0 1.246.464 1.252 1.366.021 3.303.108 6.593.324 7.393.146.54 1.087.638 1.087-.512l-.002-2.216h5.128c.276 0 .5-.224.5-.5v-4.499h-5.568c-.157-1.461-1.27-2.531-2.721-2.531h-.001c-1.44 0-2.578 1.038-2.806 2.531h-4.904v4.5c0 .276.224.5.5.5h3.757l-.261 2h-3.996c-1.104 0-2-.896-2-2v-9c0-1.104.896-2 2-2h16c1.104 0 2 .896 2 2zm-2 .5c0-.276-.224-.5-.5-.5h-15c-.276 0-.5.224-.5.5v.5h16v-.5zm-14 7.5h2.386l.129-1h-2.515v1zm12-3h-3v1h3v-1z"/></svg>				
+                            <p>Mis creditos</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="mejoresin">  
+                    <div class="categoria" data-categoria="cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>				
+				<p>Consultar Lineas de Credito</p>
+			</div>
+                    </a>
+		</div>
+
+		
+
+		
+	</main>
+<!-- -->
+
+    <div class="modal-container8">
+        
+        <div class="modal8 modal-close8 ">
+            
+            <p class="close8">X</p>
+            <div class="modal-textos ">
+                
+                <table class="tabla">
+                    <thead>
+
+             <tr>
+                
+                <th>Codigo</th>
+                <th>Documento</th> 
+                <th>Codigo Linea</th> 
+                <th>Monto prestado</th> 
+                <th>Fecha de aprobacion</th> 
+                <th>Plazo (meses)</th> 
+                
+               
+                
+                
+            </tr>
+                    </thead>
+            
+                    <%datoos.forEach(function(datoos){ %>  
+         
+                        <tr> 
+                            <form action="" method="" >
+                              <td><input type="text" name="codigocredito" value="<%=datoos.codigocredito%>" class="cod" id="cod" name="co"></td>
+                             <td><input trype="text" name="doccli" value="<%=datoos.doccli%>" class="doc" id="doc" name="documento"></td>
+                             <td><input type="text" name="codigolinea" value="<%=datoos.codlinea%>" class="codlinea" id="codlinea" name="lineacod"></td>
+                             <td><input type="number" name="monto" value="<%=datoos.montoprestado%>" class="monto" id="monto" name="mon"></td>
+                             <td><input type="date" name="fechaaprobacion" value="<%=datoos.fechaaproba%>" class="fech" id="fech" name="fapro"></td>
+                             <td><input type="number" name="plazo" value="<%=datoos.plazo%>" class="plazo" id="plazo" name="pla"></td>
+                             
+                             
+                            </form>
+                            
+                        </tr>
+                        
+                        
+                   <%})%>
+       
+        </table>
+                
+                
+            </div>
+            
+        </div>
+        
+    </div>
+                
+        
+
+    
+    
+    
+</body>
+</html>
+ <script src="js/modalvistacliente.js"></script>

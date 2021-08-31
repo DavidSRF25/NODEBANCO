@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Gestion Usuarios</title>
+</head>
+<body>
+    
+  <table>
+  
+     <tr>
+
+        <th>Documento</th>
+        <th>usuario</th>
+        <th>Clave</th>
+        <th>Rol</th>
+        <th>Estado</th>
+        <th>Imagen</th>
+        <th>Actualizar</th>
+        <th>Eliminar</th>
+
+
+     </tr>
+
+    <%datos.forEach(function(datos){ %>  
+
+     <tr>
+         <td><input type="text" value="<%=datos.doccli%>" class="doc"></td>
+         <td><input type="text" value="<%=datos.nomusu%>" class="usu"></td>
+         <td><input type="text" value="<%=datos.clave%>" class="cla"></td>
+         <td><input type="text" value="<%=datos.rol%>" class="rol"></td>
+         <td><input type="text" value="<%=datos.estado%>" class="est"></td>
+         <td><input type="text" value="<%=datos.imagen%>" class="img"></td>
+         <td><input type="submit" value="Actualizar" class="img2"></td>
+         <td><input type="submit" value="Eliminar" class="img3"></td>
+     </tr>
+    <%})%>
+  </table>
+       <form action="/frminsertar" method="post">
+        <legend>Formulario de Registro de usuarios</legend>
+      <label for="">Documento</label>
+      <td><input type="text"   name="doc"></td><br>
+      <label for="">Usuario</label>
+      <td><input type="text"  name="usu"></td><br>
+      <label for="">Clave</label>
+      <td><input type="text"  name="cla"></td><br>
+      <label for="">Rol</label>
+      <td><input type="text"  name="rol"></td><br>
+      <label for="">Estado</label>
+      <td><input type="text"  name="est"></td><br>
+      <label for="">Imagen</label>
+      <td><input type="text"  name="img"></td><br>
+      <td><input type="submit"   value="Insertar"></td>
+    </form>
+  
+
+
+ </tr>
+
+
+
+</body>
+</html>

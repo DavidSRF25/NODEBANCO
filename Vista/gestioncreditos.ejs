@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/styles.css">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <title>Creditos</title>
+    </head>
+    <body>
+        <h1>Creditos</h1><br> <br>
+         
+        
+  <!--
+            <input type="text" placeholder="Codigo Credito" name="Codcredito">
+            <input type="text" placeholder="Documento cliente" name="Documentocli">
+            <input type="text" placeholder="Codigo Linea" name="Codlinea">
+            <input type="number" placeholder="Monto prestado" name="Monto">
+            <input type="date"   placeholder="Fecha Aprobacion" name="Fecha">
+            <input type="number" placeholder="Plazo (Meses)" name="Plazo">
+             <input type="submit" name="btninsertcreditos">
+            
+            
+          -->  
+            
+        
+        
+        
+        <table class="tabla">
+             
+             <tr>
+                
+                <th>Codigo</th>
+                <th>Documento</th> 
+                <th>Codigo Linea</th> 
+                <th>Monto prestado</th> 
+                <th>Fecha de aprobacion</th> 
+                <th>Plazo (meses)</th> 
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+                
+                
+            </tr>
+            
+            
+            <%datos.forEach(function(datos){ %>  
+         
+              <tr> 
+                  
+                    <td><input type="text" name="codigocredito" value="<%=datos.codigocredito%>"></td>
+                   <td><input trype="text" name="doccli" value="<%=datos.doccli%>"></td>
+                   <td><input type="text" name="codigolinea" value="<%=datos.codlinea%>"></td>
+                   <td><input type="number" name="monto" value="<%=datos.montoprestado%>"></td>
+                   <td><input type="date" name="fechaaprobacion" value="<%=datos.fechaaproba%>"></td>
+                   <td><input type="number" name="plazo" value="<%=datos.plazo%>"></td>
+                   <td><input type="submit" class="actualizarcred" value="Actualizar" name="btnactualizarcred"></td>
+                   <td><input type="submit" name="btneliminarcred"  value="Eliminar"></td>
+                
+                  
+              </tr>
+              
+              
+         <%})%>
+        </table>
+       
+        
+         
+    </body>
+</html>

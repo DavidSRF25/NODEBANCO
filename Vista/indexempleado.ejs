@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/vistasstyle.css">
+    <link rel="stylesheet" href="./css/stylestablas.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="shortcut icon" href="img/banca-en-linea.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Empleado || Home</title>
+</head>
+<body>
+     
+
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxs-bank'></i>
+                <div class="logo_name">BancoMaster</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+             <li>
+                <a href="/panelempleado">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="links_name">Panel</span>
+
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="gestionusuarioajax.jsp">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links_name">Usuarios</span>
+
+                </a>
+                <span class="tooltip">Usuarios</span>
+            </li>
+            <li>
+                <a href="indexempleado.jsp">
+                    <i class='bx bxs-message-square-edit' ></i>
+                    <span class="links_name">Home</span>
+
+                </a>
+            <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-home'></i>
+                    <span class="links_name">Archivos</span>
+
+                </a>
+               <span class="tooltip">Archivos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-chat' ></i>
+                    <span class="links_name">Mensajes</span>
+
+                </a>
+                <span class="tooltip">Mensajes</span>
+            </li>
+            
+            <li>
+                
+                  
+
+                <a class="links_name" href="cerrar">
+                    <i class='bx bxs-log-out-circle'>  </i>
+                    <span class="links_name">Cerrar Sesion</span>
+                </a>
+                    
+                    
+              
+                    
+                   
+                    <span class="tooltip">Cerrar Sesion</span>
+             
+                   
+                
+      
+
+                
+                
+            </li>
+
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="" alt="">
+                <div class="name_job">
+                    <%console.log(nu)%>
+                    <div class="name"><%=nu%></div>
+                    <div class="job"><%=rol%></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+                <section class="seccion-perfil-usuario">
+        <div class="perfil-usuario-header">
+            <div class="perfil-usuario-portada">
+                <h1 class="Bienvenido"></h1>
+                <div class="perfil-usuario-avatar">
+                    <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
+                    <button type="button" class="boton-avatar">
+                        <i class="far fa-image"></i>
+                    </button>
+                </div>
+             
+            </div>
+        </div>
+                    
+        <div class="perfil-usuario-body">
+            <div class="perfil-usuario-bio">
+                <h3 class="titulo"><%=nu%></h3>
+                
+            </div>
+            <hr style="color:blue;">
+            <h1 >Datos del usuario</h1>
+            <div class="perfil-usuario-footer">
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-at"></i> Correo:</li>
+                    <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
+                    <li><i class="icono fas fa-briefcase"></i> Rol:</li>
+                    <li><i class="icono fas fa-venus-mars"></i> Sexo:></li>
+                    
+                </ul>
+                    
+                <ul class="lista-datos">
+                    <li><i class="icono fas fa-id-card"></i> Documento:</li>
+                    <li><i class="icono fas fa-calendar-alt"></i> Fecha nacimiento:></li>
+                    <li><i class="icono fas fa-user-check"></i> Usuario:</li>
+                    <li><i class="icono fas fa-share-alt"></i> Estado:</li>
+                </ul>
+            </div>
+            <div class="redes-sociales">
+                <a href="" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
+                <a href="" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
+                <a href="" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
+            </div>
+        </div>
+    </section>
+                <script>
+
+        let btn=document.querySelector("#btn");
+        let sidebar=document.querySelector(".sidebar");
+        
+        btn.onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+        .onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+
+    </script>
+    </body>
+</html>
+
+

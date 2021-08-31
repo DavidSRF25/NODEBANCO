@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/styles.css">
+        <title>Clientes</title>
+    </head>
+    <body>
+         <h1>Gestion de Clientes</h1>
+         
+          
+        <!--
+        
+            
+            <input type="text" name="doc" placeholder="documento">
+            <input type="text" name="nom" placeholder="Nombre">
+            <input type="text" name="ape" placeholder="Apellido">
+            <input type="email" name="correo" placeholder="Correo">
+            <input type="text" name="telefono" placeholder="Telefono">
+            <input type="text" name="sexo" placeholder="Sexo">
+            <input type="date" name="fecnac" placeholder="Fecha Nacimiento">
+            <input type="submit" name="btninsertcli">
+            
+        
+        
+        
+            -->
+            <table class="tabla">
+            
+             
+             <tr>
+                
+                <th>Documento</th>
+                <th>Nombre</th> 
+                <th>Apellido</th> 
+                <th>Correo</th> 
+                <th>Celular</th> 
+                <th>Sexo</th> 
+                <th>Fecha de nacimiento</th> 
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+                
+                
+            </tr>
+        
+        
+             
+            
+            <%datos.forEach(function(datos){ %>  
+              <tr>
+              
+              
+                  <td><input type="text" class="doc" value="<%=datos.doccli%>"></td>
+                  <td><input type="text" name="nom" value="<%=datos.nomcli%>"></td>
+                  <td><input type="text" name="ape" value="<%=datos.apecli%>"></td>
+                  <td><input type="text" name="correo" value="<%=datos.correocli%>"></td>
+                  <td><input type="text" name="celular" value="<%=datos.celularcli%>"></td>
+                  <td><input type="text" name="sexo" value="<%=datos.sexo%>"></td>
+                  <td><input type="date" name="fechanac" value="<%=datos.fechnaccli%>"></td>
+                  <td><input type="submit" class="actualizarcli" value="Actualizar" name="btnactualizarcli"></td>
+                  <td><input type="submit" name="btneliminarcli" id="boton" value="Eliminar"></td>
+              </form>
+                          
+            </tr>
+                  
+                  
+                  
+                   
+            
+             
+         <%})%>
+            </table>
+        
+             
+
+
+        
+
+         
+         
+         
+    </body>
+</html>

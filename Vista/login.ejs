@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/loginstyles.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800,900" rel="stylesheet">
+</head>
+<body>
+
+  <form action="/login" method="POST">
+        <div class="form">
+            <h1>Login</h1>
+            <p>¿No tienes cuenta? <a href="/register">Registrate Aca</a></p>
+            <div class="grupo">
+
+                <input type="text" name="usuario" id="" required placeholder="Usuario" ><span class="barra"></span>
+             
+            </div>
+           
+            <div class="grupo">
+                <input type="password" name="pass" id="" required placeholder="Contraseña"><span class="barra"></span>
+                
+            </div>
+           
+            <button type="submit" name="btn">Entrar</button>
+        </div>
+    </form>
+</body>
+</html>

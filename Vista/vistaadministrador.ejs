@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/vistasstyle.css">
+    <link rel="stylesheet" href="./css/stylestablas.css">
+    <link rel="shortcut icon" href="img/banca-en-linea.svg" type="image/x-icon">
+    <link rel="stylesheet" href="./css/stylemodaladministrador.css">
+    <script src="/js/jquery-3.6.0.min.js" ></script>
+    <script src="/js/actualizar.js" ></script>
+   
+    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+    <title>Panel || Administrador</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxs-bank'></i>
+                <div class="logo_name">BancoMaster</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+             <li>
+                <a href="vistaadministrador.jsp">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="links_name">Dashboard</span>
+
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="gestionusuarioajax.jsp">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links_name">Usuarios</span>
+
+                </a>
+                <span class="tooltip">Usuarios</span>
+            </li>
+            <li>
+                <a href="/indexadministrador">
+                   <i class='bx bxs-home'></i>
+                    <span class="links_name">Home</span>
+
+                </a>
+            <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-folder-open' ></i>
+                    <span class="links_name">Archivos</span>
+
+                </a>
+               <span class="tooltip">Archivos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-chat' ></i>
+                    <span class="links_name">Mensajes</span>
+
+                </a>
+                <span class="tooltip">Mensajes</span>
+            </li>
+            
+            <li>
+                
+                  
+
+                <a class="links_name" href="cerrar">
+                    <i class='bx bxs-log-out-circle'>  </i>
+                    <span class="links_name">Cerrar Sesion</span>
+                </a>
+                    
+                    
+              
+                    
+                   
+                    <span class="tooltip">Cerrar Sesion</span>
+             
+                   
+                
+      
+
+                
+                
+            </li>
+
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="" alt="">
+                <div class="name_job">
+                    <div class="name"><%=nu%></div>
+                    <div class="job"><%=rol%></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    
+          
+        <main>
+		<h1 class="titulo">Panel control Administrador</h1>
+		<div class="categorias" id="categorias">
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="crearusuarios">
+			<div class="categoria activa" data-categoria="metodos-pago">
+				<svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-5v5h-2v-5h-5v-2h5v-5h2v5h5v2z"/></svg>
+                                <p>Agregar usuarios</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="eliminarusuarios">
+			<div class="categoria" data-categoria="entregas">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/></svg>
+				<p>Eliminar usuarios</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="actualizarusuarios">
+			<div class="categoria" data-categoria="seguridad">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"/></svg>				<p>Actualizar Usuarios</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="consultarusuarios">  
+			<div class="categoria" data-categoria="cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M23.822 20.88l-6.353-6.354c.93-1.465 1.467-3.2 1.467-5.059.001-5.219-4.247-9.467-9.468-9.467s-9.468 4.248-9.468 9.468c0 5.221 4.247 9.469 9.468 9.469 1.768 0 3.421-.487 4.839-1.333l6.396 6.396 3.119-3.12zm-20.294-11.412c0-3.273 2.665-5.938 5.939-5.938 3.275 0 5.94 2.664 5.94 5.938 0 3.275-2.665 5.939-5.94 5.939-3.274 0-5.939-2.664-5.939-5.939z"/></svg>				<p>Consultar usuarios</p>
+			</div>
+                    </a>
+                     <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="misdatos"> 
+                    <div class="categoria" data-categoria="seguridad">
+				<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c-3.371 2.866-5.484 3-9 3v11.535c0 4.603 3.203 5.804 9 9.465 5.797-3.661 9-4.862 9-9.465v-11.535c-3.516 0-5.629-.134-9-3zm0 1.292c2.942 2.31 5.12 2.655 8 2.701v10.542c0 3.891-2.638 4.943-8 8.284-5.375-3.35-8-4.414-8-8.284v-10.542c2.88-.046 5.058-.391 8-2.701zm5 7.739l-5.992 6.623-3.672-3.931.701-.683 3.008 3.184 5.227-5.878.728.685z"/></svg>
+				<p>Actualizar mis datos</p>
+			</div>
+                     </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="empleados">  
+			<div class="categoria" data-categoria="cuenta">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm0 22c-3.123 0-5.914-1.441-7.749-3.69.259-.588.783-.995 1.867-1.246 2.244-.518 4.459-.981 3.393-2.945-3.155-5.82-.899-9.119 2.489-9.119 3.322 0 5.634 3.177 2.489 9.119-1.035 1.952 1.1 2.416 3.393 2.945 1.082.25 1.61.655 1.871 1.241-1.836 2.253-4.628 3.695-7.753 3.695z"/></svg>                                
+                                    <p>Mis Empleados</p>
+			</div>
+                    </a>
+                    
+		</div>
+
+		
+
+		
+	</main>
+           
+         
+              <div class="modal-container2">
+      <div class="modal2 modal-close2 ">
+            
+            <p class="close2">X</p>
+            <div class="modal-textos ">
+                
+                <table>
+                    <thead>
+             <tr>
+                
+                <th>Documento</th>
+                <th>Nombre</th> 
+                <th>Apellido</th> 
+                <th>Correo</th> 
+                <th>Celular</th>
+                <th>Sexo</th> 
+                <th>Usuario</th> 
+                <th>Estado</th> 
+                
+                
+                
+                
+                
+            </tr>
+                    </thead>
+         
+         
+                    
+              
+              
+         
+        </table>
+                
+            </div>
+            
+        </div>
+        
+              </div>
+             
+        
+        <div class="modal-container8">
+      <div class="modal8 modal-close8 ">
+            
+            <p class="close8">X</p>
+            <div class="modal-textos ">
+                
+                    <table class="tabla">
+                        <thead>
+        
+            <tr>
+                
+                <th>Documento</th>
+                <th>Usuario</th> 
+                <th>Clave</th> 
+                <th>Rol</th> 
+                <th>Estado</th> 
+                <th>Imagen</th>
+                <th>Actualizar</th>  
+                 
+                
+                
+            </tr>
+                        </thead>
+                        
+                        
+                        <%datos.forEach(function(datos){ %>  
+                            
+                            <tr>
+                                <form action="" method="" >
+                                <td><input type="text" value="<%=datos.doccli%>" class="doc" id="doc" name="do"></td>
+                                <td><input type="text" value="<%=datos.nomusu%>" class="usu" id="usu" name="us"></td>
+                                <td><input type="text" value="<%=datos.clave%>" class="cla" id="cla" name="cl"></td>
+                                <td><input type="text" value="<%=datos.rol%>" class="rol" id="rol" name="ro"></td>
+                                <td><input type="text" value="<%=datos.estado%>" class="est" id="est" name="es"></td>
+                                <td><input type="text" value="<%=datos.imagen%>" class="img" id="img" name="im"></td>
+                                <td><input type="submit" value="Actualizar"  name="btnact"  class="btnact id="btnact"></td>
+                            </form>
+                                
+                            </tr>
+                           <%})%>
+                        
+              
+        
+        
+         
+        </table>
+    
+   
+                
+            </div>
+            
+        </div>
+        
+              </div>
+         
+           
+          
+<!--
+  
+     <div class="modal-container4">
+        
+        <div class="modal4 modal-close4 ">
+            
+            <p class="close4">X</p>
+            <div class="modal-textos ">
+               
+                <table class="tabla">
+                    <thead>
+             <tr>
+                
+                <th >Documento</th>
+                <th>Usuario</th> 
+                <th>Clave</th> 
+                <th>Rol</th> 
+                <th>Estado</th> 
+                <th>Imagen</th> 
+                <th>Eliminar</th> 
+                
+                
+            </tr>
+                    </thead>
+            
+        
+         
+              <tr> 
+              <form action="ServletEliminar" method="post">
+                  <td><input type="text" class="doc" value="" name="doc"></td>
+                  <td><input type="text" class="usu" value="" name="usu"</td>
+                  <td><input type="text" class="clave" value="" name="clave"</td>
+                  <td><input type="text" class="rol" value="" name="rol"</td>
+                  <td><input type="text" class="estado" value="" name="estado" </td>
+                  <td><input type="text" class="img" value="" name="img"</td>
+                  <td><input type="submit" class="act" value="Eliminar" name="btneliminarusuarios"</td>
+                  
+                  
+              </form>
+                  
+                  
+              </tr>
+              
+              
+         
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    -->
+    <!--
+               <div class="modal-container5">
+        
+        <div class="modal5 modal-close5 ">
+            
+            <p class="close5">X</p>
+            <div class="modal-textos ">
+               
+                <table class="tabla">
+                    <thead>
+              <tr>
+                
+                <th >Documento</th>
+                <th>Usuario</th> 
+                <th>Clave</th> 
+                <th>Rol</th> 
+                <th>Estado</th> 
+                <th>Imagen</th> 
+                <th>Eliminar</th> 
+                
+                
+            </tr>
+                    </thead>
+        
+         
+               <tr>
+                 
+              <form action="ServletActualizar" method="post">
+                  <td><input type="text" class="doc" value="" name="doc"></td>
+                  <td><input type="text" class="usu" value="" name="usu"</td>
+                  <td><input type="text" class="clave" value="" name="clave"</td>
+                          <td><select name="rol" required>
+                                  <option value=""</option>
+                                  <option value="Administrador">Administrador</option>
+                                  <option value="Empleado">Empleado</option>
+                                  <option value="Cliente">Cliente</option>
+                                  
+                              </select></td>
+                              <td><select name="estado" required>
+                                  <option value=""></option>
+                                  <option value="Activo">Activo</option>
+                                  <option value="Inactivo">Inactivo</option>
+                                  
+                                  
+                              </select></td>
+                  
+                  
+                  <td><input type="text" class="img" value="" name="img"</td>
+                  <td><input type="submit" class="act" value="ACTUALIZAR" name="btnactualizarusuarioss"</td>
+                  
+                  
+              </form>
+                  
+              </tr>
+              
+              
+         
+                </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+    -->
+  
+               
+                     <div class="modal-container15">
+      <div class="modal15 modal-close15 ">
+            
+            <p class="close15">X</p>
+            <div class="modal-textos">
+                <section class="form-register">
+                 <form action="/frinsertarusuarios" method="post">
+            
+             <input class="controls" type="text" name="doc" placeholder="Documento">
+            <input class="controls" type="text" name="usu" placeholder="Usuario">
+            <input  class="controls" type="password" name="cla" placeholder="clave">
+            <td><select class="controls" name="rol" required>
+                                  <option value="Cliente">Seleccione</option>
+                                  <option value="Administrador">Administrador</option>
+                                  <option value="Empleado">Empleado</option>
+                                  <option value="Cliente">Cliente</option>
+                                  
+                              </select></td>
+            <input class="controls" type="text" name="est" placeholder="Estado">
+            <input class="controls" type="text" name="img" placeholder="Imagen">
+            <input class="botons" type="submit" name="btninsert" value="Agregar">
+            
+        </form>
+                </section>
+                
+            </div>
+            
+        </div>
+        
+              </div>
+               
+
+                <!--
+                 <div class="modal-container1">
+        
+        <div class="modal1 modal-close1 ">
+            
+            <p class="close1">X</p>
+            <div class="modal-textos ">
+               
+                <table class="tabla">
+             
+             <tr>
+                
+                <th>Documento</th>
+                <th>Nombre</th> 
+                <th>Apellido</th> 
+                <th>Correo</th> 
+                <th>Celular</th> 
+                <th>Sexo</th> 
+                <th>Fecha de nacimiento</th> 
+                <th>Actualizar</th>
+                
+               
+                
+                
+            </tr>
+            
+            
+           
+            <tr>
+                 <form action="ServletActualizar">
+                <td><input type="text" readonly class="caja" value="" name="doc"></td>
+                <td><input type="text" class="caja" value="" name="nom"></td><br>
+                <td><input type="text" class="caja" value="" name="ape"></td>
+                <td><input type="text" class="caja" value="" name="correo"></td>
+                <td><input type="text" class="caja" value="" name="celular"></td><br>
+                <td><input type="text" class="caja" value="" name="Sexo"></td>
+                <td><input type="text" class="caja" value="" name="fechanac"></td><br>
+                <td><input type="submit"  name="btnactualizardatosadmin" value="Actualizar"></td>
+                
+                 </form>
+                  
+                  
+              </tr>
+              
+              
+         
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+         -->  
+        
+    <script>
+
+        let btn=document.querySelector("#btn");
+        let sidebar=document.querySelector(".sidebar");
+        
+        btn.onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+        .onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+
+    </script>
+    
+</body>
+</html>
+
+ <script src="js/modaladministrador.js"></script>
+ 

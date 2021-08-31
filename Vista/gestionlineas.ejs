@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/styles.css">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+        <title>Lineas creditos</title>
+    </head>
+    <body>
+        
+        <!--
+            
+            <input type="text" name="codigol" placeholder="Codigo">
+            <input type="text" name="nomlinea" placeholder="Nombre Linea">
+            <input type="text" name="montomax" placeholder="Monto Maximo">
+            <input type="number" name="plazomax" placeholder="Plazo Maximo">
+            
+            <input type="submit" name="btninsertlineas" value="Insertar">
+            
+        -->
+        <h1>Lineas de creditos</h1><br>
+         <table>
+             
+             <tr>
+                
+                <th>Codigo</th>
+                <th>Nombre</th> 
+                <th>Monto maximo</th> 
+                <th>Plazo maximo</th> 
+                <th>Actualizar</th>
+                <th>Eliminar</th>
+                
+                
+                
+            </tr>
+          
+            <%datos.forEach(function(datos){ %>  
+              <tr>
+                  
+              
+                  <td><input type="text" name="codigolinea" value="<%=datos.codlinea%>"></td>
+                  <td><input type="text" name="nombrelinea" value="<%=datos.nomlinea%>"></td>
+                  <td><input type="text" name="montomaximo" value="<%=datos.montomaxicredito%>"></td>
+                  <td><input type="number" name="plazomaximo" value="<%=datos.plazomaxcred%>"></td>
+                  <td><input type="submit" class="actualizarlineas" value="Actualizar" name="btnactualizarlineas"></td>
+                  <td><input type="submit" class="btneliminarlineas" value="Eliminar" name="btneliminarlineas"></td>
+                 
+           
+                  
+              </tr>
+              
+              
+         <%})%>
+        </table>
+      
+        
+      
+    </body>
+</html>

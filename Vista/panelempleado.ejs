@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/vistasstyle.css">
+    <link rel="stylesheet" href="./css/stylestablas.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <link rel="shortcut icon" href="img/banca-en-linea.svg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./css/stylemodalempleado.css">
+    <title>Panel || Empleado </title>
+</head>
+<body>
+   
+
+    <div class="sidebar">
+        <div class="logo_content">
+            <div class="logo">
+                <i class='bx bxs-bank'></i>
+                <div class="logo_name">BancoMaster</div>
+            </div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav_list">
+             <li>
+                <a href="/panelempleado">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="links_name">Dashboard</span>
+
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="gestionusuarioajax.jsp">
+                    <i class='bx bxs-user' ></i>
+                    <span class="links_name">Usuarios</span>
+
+                </a>
+                <span class="tooltip">Usuarios</span>
+            </li>
+            <li>
+                <a href="/indexempleado">
+                   <i class='bx bxs-home'></i>
+                    <span class="links_name">Home</span>
+
+                </a>
+            <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-folder-open' ></i>
+                    <span class="links_name">Archivos</span>
+
+                </a>
+               <span class="tooltip">Archivos</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-chat' ></i>
+                    <span class="links_name">Mensajes</span>
+
+                </a>
+                <span class="tooltip">Mensajes</span>
+            </li>
+            
+            <li>
+                <form action="ServletCerrar">
+                  <a href="#">
+
+                    
+                    <i class='bx bxs-log-out-circle'> </i>
+                    
+                    <input type="submit" name="btncerrar" class="links_name" value="Cerrar Sesion" style="border:none;color:#fff;background:#4D0686;">
+                </a>
+                    
+
+                    <span class="tooltip">Cerrar Sesion</span>
+             
+                   
+                   
+             
+         </form>
+
+                
+                
+            </li>
+
+        </ul>
+        <div class="profile_content">
+            <div class="profile">
+                <div class="profile_details">
+                    <img src="" alt="">
+                <div class="name_job">
+                    <div class="name"></div>
+                    <div class="job"></div>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+    </div>
+    
+          
+        <main>
+		<h1 class="titulo">Panel de Control</h1>
+		<div class="categorias" id="categorias">
+                    <a href="/vistalineas" style="text-decoration:none;">
+			<div class="categoria activa" data-categoria="metodos-pago">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 16h-3v-1h3v1zm.317-5l.863-1h-4.18v3h2.565l.193-.959.014-.041h-1.772v-1h2.317zm4.424 4.104l-3.015-2.677-.007.009-.469 3.564 3.491-.896zm.649-.76l6.61-7.75-3-2.594-6.62 7.671 3.01 2.673zm-10.39-2.344h-3v1h3v-1zm12 6h-17v-10h12.906l1.726-2h-16.632v14h21v-6.826l-2 2.337v2.489zm-12-8h-3v1h3v-1zm-3 6h3v-1h-3v1z"/></svg>				
+                        <p>Lineas de Credito</p>
+			</div>
+                    </a>
+                     <a href="/vistacreditos" style="text-decoration:none;">
+			<div class="categoria" data-categoria="entregas">
+                                   <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M22 4h-20c-1.104 0-2 .896-2 2v12c0 1.104.896 2 2 2h20c1.104 0 2-.896 2-2v-12c0-1.104-.896-2-2-2zm-19 5.78c0-.431.349-.78.78-.78h.428v1.125h-1.208v-.345zm0 .764h1.208v.968h-1.208v-.968zm0 1.388h1.208v1.068h-.428c-.431 0-.78-.349-.78-.78v-.288zm3 5.068h-3v-1h3v1zm1-4.78c0 .431-.349.78-.78.78h-.429v-1.068h1.209v.288zm0-.708h-1.209v-.968h1.209v.968zm0-1.387h-1.629v2.875h-.743v-4h1.592c.431 0 .78.349.78.78v.345zm4 6.875h-3v-1h3v1zm1-6.5c0-1.381 1.119-2.5 2.5-2.5.484 0 .937.138 1.32.377-.531.552-.857 1.3-.857 2.123 0 .824.327 1.571.857 2.123-.383.239-.836.377-1.32.377-1.381 0-2.5-1.119-2.5-2.5zm4 6.5h-3v-1h3v1zm5 0h-3v-1h3v1zm-2.5-4c-1.38 0-2.5-1.119-2.5-2.5s1.12-2.5 2.5-2.5c1.381 0 2.5 1.119 2.5 2.5s-1.119 2.5-2.5 2.5z"/></svg>
+				<p>Creditos</p>
+			</div>
+                     </a>
+                    <a href="creartipocuenta.jsp" style="text-decoration:none;">
+			<div class="categoria" data-categoria="seguridad">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M7 21h-4v-11h4v11zm7-11h-4v11h4v-11zm7 0h-4v11h4v-11zm2 12h-22v2h22v-2zm-23-13h24l-12-9-12 9z"/></svg>
+                            <p>Cuentas</p>
+			</div>
+                    </a> 
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="misdatos">
+			<div class="categoria" data-categoria="cuenta">
+                     <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M9 12l-4.463 4.969-4.537-4.969h3c0-4.97 4.03-9 9-9 2.395 0 4.565.942 6.179 2.468l-2.004 2.231c-1.081-1.05-2.553-1.699-4.175-1.699-3.309 0-6 2.691-6 6h3zm10.463-4.969l-4.463 4.969h3c0 3.309-2.691 6-6 6-1.623 0-3.094-.65-4.175-1.699l-2.004 2.231c1.613 1.526 3.784 2.468 6.179 2.468 4.97 0 9-4.03 9-9h3l-4.537-4.969z"/></svg>				
+				<p>Actualizar mis datos</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="consultarclientes">
+			<div class="categoria" data-categoria="seguridad">
+                        <svg  xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M7 16.488l1.526-.723c1.792-.81 2.851-.344 4.349.232 1.716.661 2.365.883 3.077 1.164 1.278.506.688 2.177-.592 1.838-.778-.206-2.812-.795-3.38-.931-.64-.154-.93.602-.323.818 1.106.393 2.663.79 3.494 1.007.831.218 1.295-.145 1.881-.611.906-.72 2.968-2.909 2.968-2.909.842-.799 1.991-.135 1.991.72 0 .23-.083.474-.276.707-2.328 2.793-3.06 3.642-4.568 5.226-.623.655-1.342.974-2.204.974-.442 0-.922-.084-1.443-.25-1.825-.581-4.172-1.313-6.5-1.6v-5.662zm-1 6.538h-4v-8h4v8zm1-7.869v-1.714c-.006-1.557.062-2.447 1.854-2.861 1.963-.453 4.315-.859 3.384-2.577-2.761-5.092-.787-7.979 2.177-7.979 2.907 0 4.93 2.78 2.177 7.979-.904 1.708 1.378 2.114 3.384 2.577 1.799.415 1.859 1.311 1.853 2.879 0 .13-.011 1.171 0 1.665-.483-.309-1.442-.552-2.187.106-.535.472-.568.504-1.783 1.629-1.75-.831-4.456-1.883-6.214-2.478-.896-.304-2.04-.308-2.962.075l-1.683.699z"/></svg>                            <p>Consultar Clientes</p>
+			</div>
+                    </a> 
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="eliminarclientes">
+			<div class="categoria" data-categoria="cuenta">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M19.5 15c-2.483 0-4.5 2.015-4.5 4.5s2.017 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.017-4.5-4.5-4.5zm2.5 5h-5v-1h5v1zm-7.18 4h-14.815l-.005-1.241c0-2.52.199-3.975 3.178-4.663 3.365-.777 6.688-1.473 5.09-4.418-4.733-8.729-1.35-13.678 3.732-13.678 6.751 0 7.506 7.595 3.64 13.679-1.292 2.031-2.64 3.63-2.64 5.821 0 1.747.696 3.331 1.82 4.5z"/></svg>				<p>Eliminar Clientes</p>
+			</div>
+                    </a>
+		</div>
+
+		
+
+		
+	</main>
+           
+         
+    <div class="modal-container22">
+        
+        <div class="modal22 modal-close22 ">
+            
+            <p class="close22">X</p>
+            <div class="modal-textos">
+               
+                <table class="tabla">
+                    <thead>
+             <tr>
+                
+                <th>Documento</th>
+                <th>Nombre</th> 
+                <th>Apellido</th> 
+                <th>Correo</th> 
+                <th>Celular</th> 
+                <th>Sexo</th> 
+                <th>Fecha de nacimiento</th> 
+                
+                
+               
+                
+                
+            </tr>
+                    </thead>
+            
+                    <%data.forEach(function(data){ %>  
+            
+        
+        
+         
+            <tr>
+                
+                 
+                <td><input type="text" readonly class="doc" value="<%=data.doccli %>" name="doc"></td>
+                <td><input type="text" class="nom" value="<%=data.nomcli %>" name="nom"></td>
+                <td><input type="text" class="ape" value="<%=data.apecli %>" name="ape"></td>
+                <td><input type="text" class="correo" value="<%=data.correocli %>" name="correo"></td>
+                <td><input type="text" class="celular" value="<%=data. celularcli %>" name="celular"></td>
+                <td><input type="text" class="Sexo" value="<%=data. sexo %>" name="Sexo"></td>
+                <td><input type="text" class="fechanac" value="<%=data.fechnaccli %>" name="fechanac"></td>
+                
+                
+                
+         
+                  
+                  
+              </tr>
+              
+              
+         <%})%>
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
+               
+           
+        
+    <script>
+
+        let btn=document.querySelector("#btn");
+        let sidebar=document.querySelector(".sidebar");
+        
+        btn.onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+        .onclick=function() {
+            sidebar.classList.toggle("active");
+
+        }
+
+    </script>
+    
+</body>
+</html>
+
+ <script src="js/modaldatosemple.js"></script>
