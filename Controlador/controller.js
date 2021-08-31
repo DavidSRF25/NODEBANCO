@@ -13,7 +13,8 @@ controller.login = async (req, res, next) => {
   cnn.query("select * from tbusuarios where nomusu=?", [usu], async (err, resultado) => {
       if (err) {
         next(new Error(err));
-      } else if ( resultado != 0 &&(await bcryptjs.compare(password, resultado[0].clave))) {
+      } else if ( resultado != 0 &&(await bcryptjs.compare(password, resultado[0].clave)))
+       {
         console.log("datos Correctos");
         //res.redirect('vistaadministrador');
 
@@ -337,7 +338,7 @@ controller.insertarusu = async (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/");
+        res.redirect("/vistaadministrador");
       }
     }
   );
@@ -367,7 +368,7 @@ controller.insertarcred = (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/");
+        res.redirect("/vistacreditos");
       }
     }
   );
@@ -394,7 +395,7 @@ controller.insertarlinea = (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/");
+        res.redirect("/vistalineas");
       }
     }
   );
