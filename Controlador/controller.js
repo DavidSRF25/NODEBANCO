@@ -13,8 +13,7 @@ controller.login = async (req, res, next) => {
   cnn.query("select * from tbusuarios where nomusu=?", [usu], async (err, resultado) => {
       if (err) {
         next(new Error(err));
-      } else if ( resultado != 0 &&(await bcryptjs.compare(password, resultado[0].clave)))
-       {
+      } else if ( resultado != 0 &&(await bcryptjs.compare(password, resultado[0].clave))) {
         console.log("datos Correctos");
         //res.redirect('vistaadministrador');
 
@@ -338,7 +337,7 @@ controller.insertarusu = async (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/vistaadministrador");
+        res.redirect("/");
       }
     }
   );
@@ -368,7 +367,7 @@ controller.insertarcred = (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/vistacreditos");
+        res.redirect("/");
       }
     }
   );
@@ -395,7 +394,7 @@ controller.insertarlinea = (req, res, next) => {
         next(new Error(err));
       } else {
         console.log(resbd);
-        res.redirect("/vistalineas");
+        res.redirect("/");
       }
     }
   );
@@ -570,6 +569,27 @@ controller.borrarCred = async (req, res, next) => {
     }
   );
 };
+
+controller.borrarusuario= async(req, res, next) => {
+  const doc = req.body.do;
+ 
+
+
+  cnn.query('DELETE  from tbusuarios  WHERE doccli="' + doc + '"', async(err, respbd) => {
+
+    if (err) {
+        next(new Error(err));
+
+    } else {
+        console.log(respbd);
+        res.redirect('vistaadministrador');
+    }
+
+
+});
+
+
+}
 
 /*CERRAR SESION*/
 

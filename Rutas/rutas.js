@@ -22,6 +22,7 @@ rutas.post('/actualizar',controller.actualizar);
 rutas.post('/actualizarcred',controller.actualizarCred);
 rutas.post('/actualizarlineas',controller.actualizarLineas);
 rutas.post('/borrarlineas',controller.borrarLineas);
+rutas.post('/borrar',controller.borrarusuario);
 
 rutas.post('/login',controller.login);
 rutas.get('/vistaadministrador',controller.consultausuarios);
@@ -34,6 +35,7 @@ rutas.post('/frinsertarclientes',controller.insertarcliente);
 rutas.get('/panelempleado',controller.consultaclientes);
 
 rutas.post('/borrarcred',controller.borrarCred);
+
 rutas.get('/vistalineas',controller.consultalineas);
 rutas.get('/cerrar',controller.cerrar);
 
