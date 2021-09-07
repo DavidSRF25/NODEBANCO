@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos || Cliente</title>
+    <link rel="stylesheet" href="./css/vistacliente.css">
+    <link rel="stylesheet" href="./css/stylestablas.css">
+   
+    
+    <link rel="shortcut icon" href="img/banca-en-linea.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="./css/stylemodalmovimientos.css">
+       
+	
+
+</head>
+<body>
+
+    <nav class="nav">
+
+        <div class="nav_container">
+
+            <h1 class="nav_logo">BancoMaster.</h1>
+
+            <label for="menu" class="nav_label">
+
+              <img src="assets/menu.svg" alt="menu" class="nav_img">
+            </label>
+            <input type="checkbox" id="menu" class="nav_input">
+            <div class="nav_menu">
+                <h3 class="Persona"><%=nom%></h3>
+                <a href="/indexcliente" class="nav_item">Inicio</a>
+                <a href="/vistacliente" class="nav_item">Portal</a>
+                <form action="ServletCerrar" method="Post">
+                    <input type="submit" value="Cerrar Sesion" name="btncerrar" class="nav_cerrar">
+                </form>
+                
+
+            </div>
+        </div>
+
+    </nav>
+    <main>
+		<h1 class="titulo">Mis movimientos</h1>
+		<div class="categorias" id="categorias">
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="consignar">  
+			<div class="categoria activa" data-categoria="metodos-pago">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M18.5 15c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 2l2.5 3h-2v2h-1v-2h-2l2.5-3zm-6.346 3.894c-.918.506-1.996.839-3.154 1.001v2.105h-2v-1.996c-2.069-.037-4.213-.53-6-1.453l.909-3.289c1.912.742 4.457 1.53 6.45 1.079 2.299-.521 2.769-2.885.229-4.021-1.863-.867-7.557-1.611-7.557-6.487 0-2.725 2.078-5.165 5.969-5.7v-2.133h2v2.036c1.447.038 3.071.29 4.885.841l-.725 3.295c-1.535-.539-3.232-1.029-4.885-.929-2.979.174-3.24 2.752-1.162 3.832 2.854 1.342 6.425 2.401 7.534 5.203-2.025 1.497-3.058 4.039-2.493 6.616z"/></svg>				<p>Consignar</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="retirar">  
+			<div class="categoria" data-categoria="entregas">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M18.5 15c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 7l-2.5-3h2v-2h1v2h2l-2.5 3zm-6.346-1.106c-.918.506-1.996.839-3.154 1.001v2.105h-2v-1.996c-2.069-.037-4.213-.53-6-1.453l.909-3.289c1.912.742 4.457 1.53 6.45 1.079 2.299-.521 2.769-2.885.229-4.021-1.863-.867-7.557-1.611-7.557-6.487 0-2.725 2.078-5.165 5.969-5.7v-2.133h2v2.036c1.447.038 3.071.29 4.885.841l-.725 3.295c-1.535-.539-3.232-1.029-4.885-.929-2.979.174-3.24 2.752-1.162 3.832 2.854 1.342 6.425 2.401 7.534 5.203-2.025 1.497-3.058 4.039-2.493 6.616z"/></svg>
+				<p>Retirar</p>
+			</div>
+                    </a>
+                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;"class="mismovimientos">  
+			<div class="categoria" data-categoria="seguridad">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M12 0c-2.762 0-5 2.238-5 5s2.238 5 5 5 5-2.238 5-5-2.238-5-5-5zm.25 7.474v.526h-.5v-.499c-.518-.009-1.053-.132-1.5-.363l.228-.822c.478.186 1.114.383 1.612.271.574-.131.692-.722.057-1.006-.465-.217-1.889-.402-1.889-1.621 0-.682.52-1.292 1.492-1.426v-.534h.5v.509c.361.01.768.073 1.221.21l-.181.824c-.384-.135-.808-.258-1.222-.232-.744.043-.81.688-.29.958.855.402 1.972.7 1.972 1.772.002.859-.672 1.316-1.5 1.433zm-.25 6.526c-2.762 0-5 2.238-5 5s2.238 5 5 5 5-2.238 5-5-2.238-5-5-5zm.989 4.312l-.075.458h-1.775c-.012.153-.011.306.002.459h1.695l-.075.458h-1.539c.189.7.677 1.264 1.476 1.264.231 0 .47-.043.71-.129l.202.74c-.337.124-.682.188-1.025.188-1.472 0-2.304-.951-2.541-2.062h-.72l.075-.458h.58c-.01-.153-.01-.306.002-.459h-.504l.075-.458h.496c.241-1.111 1.062-2.062 2.428-2.062.372 0 .776.064 1.201.19l-.175.725c-.332-.095-.62-.142-.879-.142-.756 0-1.23.577-1.41 1.289h1.776zm8.588-8.925c1.233 2.352 1.548 6.801-2.585 9.756.019-.882-.113-1.706-.436-2.572 2.113-1.744 2.051-4.264 1.193-6.234l-2.377 1.236 1.596-5.182 5.032 1.737-2.423 1.259zm-19.154 5.611c-1.233-2.352-1.46-7.146 2.672-10.101-.019.882.114 1.707.436 2.572-2.114 1.745-2.139 4.609-1.281 6.58l2.377-1.236-1.596 5.182-5.031-1.738 2.423-1.259z"/></svg>
+                            <p> Mis Movimientos</p>
+			</div>
+                    </a>
+                     <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;"class="misaldo">  
+			<div class="categoria" data-categoria="cuenta">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"viewBox="0 0 24 24"><path d="M12.164 7.165c-1.15.191-1.702 1.233-1.231 2.328.498 1.155 1.921 1.895 3.094 1.603 1.039-.257 1.519-1.252 1.069-2.295-.471-1.095-1.784-1.827-2.932-1.636zm1.484 2.998l.104.229-.219.045-.097-.219c-.226.041-.482.035-.719-.027l-.065-.387c.195.03.438.058.623.02l.125-.041c.221-.109.152-.387-.176-.453-.245-.054-.893-.014-1.135-.552-.136-.304-.035-.621.356-.766l-.108-.239.217-.045.104.229c.159-.026.345-.036.563-.017l.087.383c-.17-.021-.353-.041-.512-.008l-.06.016c-.309.082-.21.375.064.446.453.105.994.139 1.208.612.173.385-.028.648-.36.774zm10.312 1.057l-3.766-8.22c-6.178 4.004-13.007-.318-17.951 4.454l3.765 8.22c5.298-4.492 12.519-.238 17.952-4.454zm-2.803-1.852c-.375.521-.653 1.117-.819 1.741-3.593 1.094-7.891-.201-12.018 1.241-.667-.354-1.503-.576-2.189-.556l-1.135-2.487c.432-.525.772-1.325.918-2.094 3.399-1.226 7.652.155 12.198-1.401.521.346 1.13.597 1.73.721l1.315 2.835zm2.843 5.642c-6.857 3.941-12.399-1.424-19.5 5.99l-4.5-9.97 1.402-1.463 3.807 8.406-.002.007c7.445-5.595 11.195-1.176 18.109-4.563.294.648.565 1.332.684 1.593z"/></svg>				<p> Mi saldo </p>
+			</div>
+                    </a>
+                    
+		</div>
+
+		
+
+		
+	</main>
+                
+                
+                
+                
+    </body>
+</html>
+ <script src="js/modalmovimientos.js"></script>
