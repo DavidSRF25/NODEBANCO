@@ -181,7 +181,48 @@
             
         </div>
         
-    </div>     
+    </div>   
+    
+    <div class="modal-container3">
+        
+        <div class="modal3 modal-close3 ">
+            
+            <p class="close3">X</p>
+            <div class="modal-textos ">
+                
+                <table>
+                    <thead>
+             
+            <tr>
+                <th>Documento Cliente</th>  
+                <th>Codigo Producto</th>
+                <th>Saldo</th>
+                <th>Fecha Movimiento</th>
+                <th>Fecha creacion</th>
+               
+            </tr>
+            </thead>
+            <%datoos.forEach(function(datoos){ %>   
+            <tr>
+              
+                <td><%= datoos.doccliente %></td>
+                <td><%= datoos.codigoproducto %></td>
+                <td><%= datoos.saldo %></td>
+                <td><%= datoos.fechamovimiento %></td>
+                
+                <td><%= datoos.fechacreacion %></td>
+                
+            
+            </tr>
+            
+        <% }) %>
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
                
            
         

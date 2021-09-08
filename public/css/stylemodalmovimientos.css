@@ -1,4 +1,4 @@
-.modal-container3{
+.modal-container6{
     
     visibility: hidden;
     position: fixed;
@@ -15,10 +15,10 @@
         
     
 }
-.modal3{
+.modal6{
     
-    width: 80%;
-    height: 60%;
+    width: 40%;
+    height: 45%;
     background: white;
     text-align: center;
     display: flex;
@@ -31,7 +31,7 @@
         
 }
 
-.close3{
+.close6{
     position: absolute;
     top:10px;
     right: 10px;
@@ -46,9 +46,61 @@
     
     
 }
-.modal-close3{
+.modal-close6{
     
-   transform: translateY(-200%);
+   transform: translateY(-500%);
+}
+.modal-container7{
+    
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top:0;
+    left: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+        
+    
+}
+.modal7{
+    
+    width: 40%;
+    height: 45%;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    transition: transform 0.8s;
+    transform: translateY(0%);
+    border-radius: 10px;
+        
+}
+
+.close7{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #c44a4a;
+    color:#fff;
+    line-height: 25px;
+    cursor:pointer;
+    border-radius: 50%;
+    
+    
+}
+.modal-close7{
+    
+   transform: translateY(-500%);
 }
 .modal-container4{
     
@@ -69,8 +121,8 @@
 }
 .modal4{
     
-    width: 70%;
-    height: 60%;
+    width: 40%;
+    height: 20%;
     background: white;
     text-align: center;
     display: flex;
@@ -100,9 +152,9 @@
 }
 .modal-close4{
     
-   transform: translateY(-200%);
+   transform: translateY(-500%);
 }
-.modal-container5{
+.modal-container20{
     
     visibility: hidden;
     position: fixed;
@@ -119,90 +171,65 @@
         
     
 }
-.modal5{
+.modal20{
     
+    width: 40%;
+    height: 20%;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    transition: transform 0.8s;
+    transform: translateY(0%);
+    border-radius: 10px;
+        
+}
+
+.close20{
+    position: absolute;
+    top:10px;
+    right: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #c44a4a;
+    color:#fff;
+    line-height: 25px;
+    cursor:pointer;
+    border-radius: 50%;
+    
+    
+}
+.modal-close20{
+    
+   transform: translateY(-500%);
+}
+
+@media(max-width: 900px){
+    .modal4{
     width: 80%;
-    height: 50%;
-    background: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    position: relative;
-    transition: transform 0.8s;
-    transform: translateY(0%);
-    border-radius: 10px;
+    height: 60%;
         
-}
-
-.close5{
-    position: absolute;
-    top:10px;
-    right: 10px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: #c44a4a;
-    color:#fff;
-    line-height: 25px;
-    cursor:pointer;
-    border-radius: 50%;
-    
-    
-}
-.modal-close5{
-    
-   transform: translateY(-200%);
-}
-.modal-container2{
-    
-    visibility: hidden;
-    position: fixed;
-    z-index: 1000;
-    width: 100%;
-    height: 100vh;
-    top:0;
-    left: 0;
-    background: rgba(0,0,0,0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
         
-    
-}
-.modal2{
-    
-    width: 50%;
-    height: 70%;
-    background: white;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    position: relative;
-    transition: transform 0.8s;
-    transform: translateY(0%);
-    border-radius: 10px;
+    }
+    .modal7{
         
-}
-
-.close2{
-    position: absolute;
-    top:10px;
-    right: 10px;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    background: #c44a4a;
-    color:#fff;
-    line-height: 25px;
-    cursor:pointer;
-    border-radius: 50%;
+      width: 80%;
+    height: 60%;
+        
+    }
     
-    
-}
-.modal-close2{
-    
-   transform: translateY(-200%);
+    .modal6{
+        width: 80%;
+    height: 60%;
+        
+    }
+    .modal20{
+          width: 60%;
+    height: 40%;
+        
+    }
+	
 }

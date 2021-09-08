@@ -172,7 +172,7 @@
                             <td><input type="text" name="montomaximo" value="<%=datos.montomaxicredito%>" class="montomaximo" id="montomaximo" name="montomaximo"></td>
                             <td><input type="number" name="plazomaximo" value="<%=datos.plazomaxcred%>" class="plazomaximo" id="plazomaximo" name="plazomaximo"></td>
                             <td><input type="submit" value="Actualizar"  name="btnactcred"  class="btnactlineas" id="btnactlineas"></td>
-                            <td><input type="submit" value="Borrar"  name="btnactcred"  class="btnborrlineas" id="btnborrlineas"></td>
+                            <td><input type="submit" value="Borrar"  name="btnborrlineas"  class="btnborrlineas" id="btnborrlineas"></td>
                             
                            
                      </form>
@@ -253,43 +253,46 @@
             <p class="close5">X</p>
             <div class="modal-textos ">
                
-                <table class="tabla">
+                 <table>
                     <thead>
-              <tr>
+             <tr>
                 
                 <th>Codigo</th>
                 <th>Nombre</th> 
                 <th>Monto maximo</th> 
                 <th>Plazo maximo</th> 
                 <th>Actualizar</th>
-                
+                <th>Borrar</th>  
                 
                 
                 
             </tr>
                     </thead>
-           
-             
-             
          
          
-              <tr>
-                  
-              <form action="ServletActualizar" method="POST">
-                  <td><input type="text" name="codigolinea" value=""></td>
-                  <td><input type="text" name="nombrelinea" value=""></td>
-                  <td><input type="text" name="montomaximo" value=""></td>
-                  <td><input type="number" name="plazomaximo" value=""></td>
-                  <td><input type="submit" class="actualizarlineas" value="Actualizar" name="btnactualizarlineas"></td>
-                  
-                 
-              </form>
-                  
-              </tr>
+                    <%datos.forEach(function(datos){ %>  
+                        <tr>
+                            
+                            <form action="" method="" >
+                            <td><input type="text" name="codigolinea" value="<%=datos.codlinea%>" class="codigo" id="codigo" name="codigo"></td>
+                            <td><input type="text" name="nombrelinea" value="<%=datos.nomlinea%>" class="nombrelinea" id="nombrelinea" name="nombrelinea"></td>
+                            <td><input type="text" name="montomaximo" value="<%=datos.montomaxicredito%>" class="montomaximo" id="montomaximo" name="montomaximo"></td>
+                            <td><input type="number" name="plazomaximo" value="<%=datos.plazomaxcred%>" class="plazomaximo" id="plazomaximo" name="plazomaximo"></td>
+                            <td><input type="submit" value="Actualizar"  name="btnactcred"  class="btnactlineas" id="btnactlineas"></td>
+                            <td><input type="submit" value="Borrar"  name="btnactcred"  class="btnborrlineas" id="btnborrlineas"></td>
+                            
+                           
+                     </form>
+
+                            
+                        </tr>
+                        
+                        
+                   <%})%>
               
               
-       
-                </table>
+         
+        </table>
                 
             </div>
             

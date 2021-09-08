@@ -111,3 +111,116 @@ window.addEventListener("click",function(e){
     
     
 });
+let cerrar5 =document.querySelectorAll(".close5")[0];
+let abrir5 =document.querySelectorAll(".actualizar")[0];
+let modal5 =document.querySelectorAll(".modal5")[0];
+let modalC5 =document.querySelectorAll(".modal-container5")[0];
+
+abrir5.addEventListener("click",function(e){
+    
+    e.preventDefault();
+    modalC5.style.opacity="1";
+    modalC5.style.visibility="visible";
+    modal5.classList.toggle("modal-close5");
+    
+});
+
+
+
+cerrar5.addEventListener("click",function(){
+    
+    
+    modal5.classList.toggle("modal-close5");
+    
+    setTimeout(function(){
+        
+        
+        modalC5.style.opacity="0";
+        modalC5.style.visibility="hidden";
+        
+        
+        
+    },900);
+    
+});
+
+window.addEventListener("click",function(e){
+    
+    
+    if(e.target === modalC5){
+        
+         modal5.classList.toggle("modal-close5");
+    
+    setTimeout(function(){
+        
+        
+        modalC5.style.opacity="0";
+        modalC5.style.visibility="hidden";
+        
+        
+        
+    },900);
+        
+        
+        
+    }
+    
+    
+});
+
+let cerrar4 =document.querySelectorAll(".close4")[0];
+let abrir4 =document.querySelectorAll(".borrarcred")[0];
+let modal4 =document.querySelectorAll(".modal4")[0];
+let modalC4 =document.querySelectorAll(".modal-container4")[0];
+
+abrir4.addEventListener("click",function(e){
+    
+    e.preventDefault();
+    modalC4.style.opacity="1";
+    modalC4.style.visibility="visible";
+    modal4.classList.toggle("modal-close4");
+    
+});
+
+
+
+cerrar4.addEventListener("click",function(){
+    
+    
+    modal4.classList.toggle("modal-close4");
+    
+    setTimeout(function(){
+        
+        
+        modalC4.style.opacity="0";
+        modalC4.style.visibility="hidden";
+        
+        
+        
+    },900);
+    
+});
+
+window.addEventListener("click",function(e){
+    
+    
+    if(e.target === modalC4){
+        
+         modal4.classList.toggle("modal-close4");
+    
+    setTimeout(function(){
+        
+        
+        modalC4.style.opacity="0";
+        modalC4.style.visibility="hidden";
+        
+        
+        
+    },900);
+        
+        
+        
+    }
+    
+    
+});

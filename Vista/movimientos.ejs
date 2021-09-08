@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="./css/stylemodalmovimientos.css">
+        <script src="/js/jquery-3.6.0.min.js" ></script>
+        
+        
+
        
 	
 
@@ -47,12 +51,12 @@
     <main>
 		<h1 class="titulo">Mis movimientos</h1>
 		<div class="categorias" id="categorias">
-                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="consignar">  
+                    <a href="/vistaconsignar" style=" color: #fff; text-decoration: none;" class="consignar">  
 			<div class="categoria activa" data-categoria="metodos-pago">
                             <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M18.5 15c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 2l2.5 3h-2v2h-1v-2h-2l2.5-3zm-6.346 3.894c-.918.506-1.996.839-3.154 1.001v2.105h-2v-1.996c-2.069-.037-4.213-.53-6-1.453l.909-3.289c1.912.742 4.457 1.53 6.45 1.079 2.299-.521 2.769-2.885.229-4.021-1.863-.867-7.557-1.611-7.557-6.487 0-2.725 2.078-5.165 5.969-5.7v-2.133h2v2.036c1.447.038 3.071.29 4.885.841l-.725 3.295c-1.535-.539-3.232-1.029-4.885-.929-2.979.174-3.24 2.752-1.162 3.832 2.854 1.342 6.425 2.401 7.534 5.203-2.025 1.497-3.058 4.039-2.493 6.616z"/></svg>				<p>Consignar</p>
 			</div>
                     </a>
-                    <a href="javascript:void(0);" style=" color: #fff; text-decoration: none;" class="retirar">  
+                    <a href="/vistaretirar" style=" color: #fff; text-decoration: none;" class="retirar">  
 			<div class="categoria" data-categoria="entregas">
                             <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" viewBox="0 0 24 24"><path d="M18.5 15c-2.485 0-4.5 2.015-4.5 4.5s2.015 4.5 4.5 4.5 4.5-2.015 4.5-4.5-2.015-4.5-4.5-4.5zm0 7l-2.5-3h2v-2h1v2h2l-2.5 3zm-6.346-1.106c-.918.506-1.996.839-3.154 1.001v2.105h-2v-1.996c-2.069-.037-4.213-.53-6-1.453l.909-3.289c1.912.742 4.457 1.53 6.45 1.079 2.299-.521 2.769-2.885.229-4.021-1.863-.867-7.557-1.611-7.557-6.487 0-2.725 2.078-5.165 5.969-5.7v-2.133h2v2.036c1.447.038 3.071.29 4.885.841l-.725 3.295c-1.535-.539-3.232-1.029-4.885-.929-2.979.174-3.24 2.752-1.162 3.832 2.854 1.342 6.425 2.401 7.534 5.203-2.025 1.497-3.058 4.039-2.493 6.616z"/></svg>
 				<p>Retirar</p>
@@ -76,7 +80,95 @@
 
 		
 	</main>
+
+    <div class="modal-container20">
+        
+        <div class="modal20 modal-close20 ">
+            
+            <p class="close20">X</p>
+            <div class="modal-textos ">
                 
+                <table>
+                    <thead>
+             
+            <tr>
+                
+                <th>Saldo</th>
+               
+               
+            </tr>
+            </thead>
+          
+        
+         
+            <%datoos.forEach(function(datoos){ %>   
+          
+            <tr>
+              
+                
+                <td><%= datoos.saldo%></td>
+               
+                                   
+                                 
+           
+                
+            
+            </tr>
+            
+        <% }) %>
+        </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>    
+
+
+    <div class="modal-container4">
+        
+        <div class="modal4 modal-close4 ">
+            
+            <p class="close4">X</p>
+            <div class="modal-textos ">
+               
+               <table class="table">
+                   <thead>
+            <tr>
+                
+                
+                <th>Envia </th>
+                <th>Fecha Envio</th>
+                <th>#Cuenta</th>
+                <th>Monto</th>
+                
+            </tr>
+                   </thead>
+                   <tbody>
+                    <%datospe.forEach(function(datospe){ %>   
+            <tr>
+      
+                <td data-label="Envia"><%=datospe.getDocu_envia()%></td>
+                
+                <td data-label="Fecha Envio"><%=datospe.doccli_envia%></td>
+                <td  data-label="#Cuenta"><%=datospe.codigoc_recibe%></td>
+                <td data-label="Monto" ><%=datospe.monto%></td>
+                
+                
+                
+                
+             
+            </tr>
+            
+        <% } )%>
+                   </tbody>
+     </table>
+                
+            </div>
+            
+        </div>
+        
+    </div>
                 
                 
                 

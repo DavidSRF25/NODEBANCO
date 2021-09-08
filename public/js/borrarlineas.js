@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    alert("Actualizar entrando Linea");
+    alert("Actualizar entrando borrar");
     
     
     $('.btnborrlineas').on('click', function(){

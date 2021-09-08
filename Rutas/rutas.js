@@ -23,8 +23,10 @@ rutas.get('/lineasmod',controller.lineasmod);
 rutas.get('/creartipocuenta',controller.crearcuentavista);
 
 rutas.post('/actualizar',controller.actualizar);
+rutas.post('/actualizardatosusu',controller.actualizarusu);
 rutas.post('/actualizarcred',controller.actualizarCred);
 rutas.post('/actualizarlineas',controller.actualizarLineas);
+rutas.post('/actualizardatoscliente',controller.actualizarcliente);
 rutas.post('/borrarlineas',controller.borrarLineas);
 rutas.post('/borrar',controller.borrarusuario);
 
@@ -35,8 +37,15 @@ rutas.post('/frminsertarcuentas',controller.crearcuenta);
 rutas.post('/frminsertarcreditos',controller.insertarcred);
 rutas.post('/frinsertarlinea',controller.insertarlinea);
 rutas.post('/frinsertarclientes',controller.insertarcliente);
+
+
 rutas.post('/transferir',controller.transferir);
 rutas.post('/descontar',controller.quitardinero);
+rutas.get('/vistaconsignar',controller.vistaconsignar);
+rutas.get('/vistaretirar',controller.vistaretirar);
+rutas.post('/consignar',controller.consignar);
+rutas.post('/retirar',controller.retirardinero);
+
 
 
 

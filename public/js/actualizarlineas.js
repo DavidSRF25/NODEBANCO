@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    alert("Actualizar entrando Linea");
+   
     
     
     $('.btnactlineas').on('click', function(){

@@ -71,8 +71,28 @@ controller.login = async (req, res, next) => {
 
 
 controller.crearcuentavista=(req, res, next)=>{
+  if (req.session.login) {
+    cnn.query("select * from cuenta ", (err, resultado) => {
 
-  res.render("creartipocuenta");
+      
+      if (err) {
+        next(new Error(err));
+      }else {
+
+        res.render("creartipocuenta",{ datoos:resultado });
+
+
+      }
+
+
+      
+    });
+
+  
+  }else {
+   res.redirect("/");
+
+  }
 
 }
 controller.index = (req, res, next) => {
@@ -116,6 +136,7 @@ controller.logueo = (req, res, next) => {
 
 
 
+
 controller.vistacliente = (req, res, next) => {
   if (req.session.login) {
   
@@ -131,14 +152,16 @@ controller.vistacliente = (req, res, next) => {
      apellido=resultado[0].apecli;
      correo=resultado[0].correocli;
      celular=resultado[0].celularcli;
-     sexo=resultado[0].sexo;
+     sex=resultado[0].sexo;
      fecha= resultado[0].fechnaccli;
 
      req.session.documentocli = documento;
      req.session.nombrecli = nombre;
-     req.session.sexocli = sexo;
+     req.session.sexocli = sex;
+     req.session.correocli=correo;
+     req.session.telefono=celular;
      let docu = req.session.documentocli;
-     let sex=req.session.sexocli;
+     let sexoo=req.session.sexocli;
 
      let nom=req.session.nombrecli ;
      if (err) {
@@ -154,9 +177,30 @@ controller.vistacliente = (req, res, next) => {
             next(new Error(err));
           }else {
 
+
+            cnn.query("SELECT  * from tblineas ",async(err,lineaas)=>{
+
+              if (err) {
+                next(new Error(err));
+              }else {
+
+                res.render("vistacliente", { nu: nomusu,sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado,lineasd:lineaas});
+
+
+              }
+
+
+
+
+
+
+
+
+            });
+
         
            
-            res.render("vistacliente", { nu: nomusu,sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado});
+            
             
           }
     
@@ -184,10 +228,10 @@ controller.movimientos=(req, res, next)=>{
 
 
   if (req.session.login) {
-    req.session.documentocli = documento;
+    let docu = req.session.documentocli;
      req.session.nombrecli = nombre;
      req.session.sexocli = sexo;
-     let docu = req.session.documentocli;
+    
      let sex=req.session.sexocli;
 
      let nom=req.session.nombrecli ;
@@ -199,7 +243,7 @@ controller.movimientos=(req, res, next)=>{
   
     
   
-    cnn.query("SELECT  saldo  FROM cuenta where doccliente='"+doc+"'",(err,resbd)=>{
+    cnn.query("SELECT  * FROM cuenta where doccliente='"+docu+"'",(err,resbd)=>{
     
   
        
@@ -211,16 +255,150 @@ controller.movimientos=(req, res, next)=>{
       }else {
         
   
-        cnn.query("select *  from cuenta as c  inner join movimientos as m on(c.doccliente=m.doccli_envia) where c.doccliente='"+doc+"'",(err, resultado) => {
+        cnn.query("select *  from movimientos  where doccli_envia='"+docu+"'",(err, resultado) => {
   
-         
+          
           if (err) {
               next(new Error(err));
             }else {
   
-          
+              console.log(resultado);
              
               res.render("movimientos", { sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado});
+              
+            }
+      
+        });
+  
+  
+  
+  
+  
+      }
+  
+  
+  
+  });
+  
+  
+  
+    } else{
+  
+      res.redirect('/');
+  
+    }
+
+
+
+}
+controller.vistaconsignar=(req, res, next)=>{
+
+
+  if (req.session.login) {
+    let docu = req.session.documentocli;
+     req.session.nombrecli = nombre;
+     req.session.sexocli = sexo;
+    
+     let sex=req.session.sexocli;
+
+     let nom=req.session.nombrecli ;
+  
+    let doc = req.session.documento;
+    let nomusu = req.session.usu;
+  let rolito = req.session.rol;
+   
+  
+    
+  
+    cnn.query("SELECT  * FROM cuenta where doccliente='"+docu+"'",(err,resbd)=>{
+    
+  
+       
+       
+  
+       
+       if (err) {
+        next(new Error(err));
+      }else {
+        
+  
+        cnn.query("select *  from movimientos  where doccli_envia='"+docu+"'",(err, resultado) => {
+  
+          
+          if (err) {
+              next(new Error(err));
+            }else {
+  
+              console.log(resultado);
+             
+              res.render("vistaconsignar", { sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado});
+              
+            }
+      
+        });
+  
+  
+  
+  
+  
+      }
+  
+  
+  
+  });
+  
+  
+  
+    } else{
+  
+      res.redirect('/');
+  
+    }
+
+
+
+}
+controller.vistaretirar=(req, res, next)=>{
+
+
+  if (req.session.login) {
+    let docu = req.session.documentocli;
+     req.session.nombrecli = nombre;
+     req.session.sexocli = sexo;
+    
+     let sex=req.session.sexocli;
+
+     let nom=req.session.nombrecli ;
+  
+    let doc = req.session.documento;
+    let nomusu = req.session.usu;
+  let rolito = req.session.rol;
+   
+  
+    
+  
+    cnn.query("SELECT  * FROM cuenta where doccliente='"+docu+"'",(err,resbd)=>{
+    
+  
+       
+       
+  
+       
+       if (err) {
+        next(new Error(err));
+      }else {
+        
+  
+        cnn.query("select *  from movimientos  where doccli_envia='"+docu+"'",(err, resultado) => {
+  
+          
+          if (err) {
+              next(new Error(err));
+            }else {
+  
+              console.log(resultado);
+             
+              res.render("vistaretirar", { sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado});
               
             }
       
@@ -251,11 +429,91 @@ controller.movimientos=(req, res, next)=>{
 
 controller.indexcliente = (req, res, next) => {
   if (req.session.login) {
+  
     let nomusu = req.session.usu;
-  let rolito = req.session.rol;
+    let rolito = req.session.rol;
+  
+    cnn.query("select * from tbclientes inner join tbusuarios on tbclientes.doccli=tbusuarios.doccli  where tbusuarios.nomusu=? ", [nomusu],  (err, resultado) => {
+  
+  
+  
+       documento = resultado[0].doccli;
+       nombre = resultado[0].nomcli;
+       apellido=resultado[0].apecli;
+       correo=resultado[0].correocli;
+       celular=resultado[0].celularcli;
+       sex=resultado[0].sexo;
+       fecha= resultado[0].fechnaccli;
+  
+       req.session.documentocli = documento;
+       req.session.nombrecli = nombre;
+       req.session.sexocli = sex;
+       req.session.correocli=correo;
+       req.session.telefono=celular;
+       req.session.fechanacimiento=fecha;
 
-  res.render("indexcliente", { nu: nomusu, rol: rolito });
-  }else{
+       let docu = req.session.documentocli;
+       let sexoo=req.session.sexocli;
+       let  fechaaa=req.session.fechanacimiento;
+       let telefonooo=req.session.telefono;
+  
+       let nom=req.session.nombrecli ;
+       let correoooo=req.session.correocli;
+       if (err) {
+        next(new Error(err));
+      }else {
+        
+  
+        cnn.query("SELECT  *  from tbcreditos inner join tbusuarios on tbcreditos.doccli = tbusuarios.doccli WHERE tbusuarios.doccli='"+docu +"'",async(err,resbd)=>{
+  
+  
+  
+          if (err) {
+              next(new Error(err));
+            }else {
+  
+  
+              cnn.query("SELECT  * from tblineas ",async(err,lineaas)=>{
+  
+                if (err) {
+                  next(new Error(err));
+                }else {
+  
+                  res.render("indexcliente", { nu: nomusu,sex:sex,nom:nom, rol: rolito,datoos:resbd ,datospe:resultado,lineasd:lineaas,sexo:sexoo, fechanaci:fechaaa,documen:docu,telefono:telefonooo,correo:correoooo});
+  
+  
+                }
+  
+  
+  
+  
+  
+  
+  
+  
+              });
+  
+          
+             
+              
+              
+            }
+      
+        });
+  
+  
+  
+  
+  
+      }
+  
+  
+  
+  });
+  
+  
+  
+    }else{
       res.redirect('/');
   }
   
@@ -623,6 +881,38 @@ controller.actualizar = async (req, res, next) => {
     }
   );
 };
+controller.actualizarusu = async (req, res, next) => {
+  const doc = req.body.do;
+  const usu = req.body.us;
+  const cla = req.body.cl;
+  const rol = req.body.ro;
+  const est = req.body.es;
+  const img = req.body.im;
+  const password = await bcryptjs.hash(cla, 8);
+  cnn.query(
+    'UPDATE tbusuarios SET nomusu="' +
+      usu +
+      '",clave="' +
+      password +
+      '",rol="' +
+      rol +
+      '",estado="' +
+      est +
+      '",imagen="' +
+      img +
+      '" where doccli="' +
+      doc +
+      '"',
+    async (err, respbd) => {
+      if (err) {
+        next(new Error("Este es el error " + err));
+      } else {
+        console.log(respbd);
+        res.redirect("vistacliente");
+      }
+    }
+  );
+};
 
 controller.actualizarCred = async (req, res, next) => {
   const cod = req.body.co;
@@ -675,6 +965,33 @@ controller.actualizarLineas = async (req, res, next) => {
   );
 };
 
+controller.actualizarcliente=async(req,res,next)=>{
+  
+const documento=req.body.doc;
+const nombre=req.body.nom;
+const apellido=req.body.ape;
+const corr=req.body.correo;
+const celu=req.body.celular;
+const sex=req.body.Sexo;
+const fechanacimiento=req.body.fechanac;
+
+    cnn.query('UPDATE tbclientes set nomcli="'+nombre+'",apecli="'+apellido+'",correocli="'+corr+'",celularcli="'+celu+'", sexo="'+sex+'", fechnaccli="'+fechanacimiento+'" where doccli="'+documento+'"',async(err,datosact)=>{
+
+      
+
+      if (err) {
+        next(new Error("Este es el error " + err));
+      }else {
+        console.log(documento+" - "+celu);
+
+        console.log(datosact);
+        
+        res.redirect("vistacliente");
+      }
+
+    });
+ 
+};
 
 controller.transferir=async(req,res,next)=>{
 
@@ -698,6 +1015,30 @@ cnn.query("UPDATE  cuenta   set saldo=saldo+"+consig+" where codigoproducto='"+c
 );
 
 };
+controller.consignar=async(req,res,next)=>{
+
+  const doc =req.body.documento;
+  
+  const consig =req.body.consignacion;
+
+  const fecha=req.body.fecha_mo;
+  
+  
+  cnn.query("UPDATE  cuenta   set saldo=saldo+"+consig+" where doccliente='"+doc+"'",async(err,resbd)=>{
+  
+  
+    if (err) {
+      next(new Error("Este es el error " + err));
+    } else {
+      console.log(resbd);
+      res.redirect("vistaconsignar");
+    }
+  
+  }
+  
+  );
+  
+  };
 
 controller.quitardinero=async(req,res,next)=>{
 
@@ -712,6 +1053,29 @@ controller.quitardinero=async(req,res,next)=>{
     } else {
       console.log(respbd);
       res.redirect("vistatransferir");
+    }
+  
+  }
+  
+
+  );
+
+
+
+}
+controller.retirardinero=async(req,res,next)=>{
+
+  const docu = req.body.documento;
+  const cod = req.body.codigo_producto;
+  const consig =req.body.consignacion;
+  cnn.query('UPDATE  cuenta   set saldo=saldo-"'+consig+'" where doccliente="'+docu+'"',async(err,respbd)=>{
+
+
+    if (err) {
+      next(new Error("Este es el error " + err));
+    } else {
+      console.log(respbd);
+      res.redirect("vistaretirar");
     }
   
   }
